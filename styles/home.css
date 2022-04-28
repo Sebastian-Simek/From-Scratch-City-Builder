@@ -1,1 +1,10 @@
-/* add home page styles here */
+#weather{
+    width: 400px;
+    height: 400px;
+    background-image: url(../assets/desert-climate.png);
+}
+#houses{
+    width: 400px;
+    height: 400px;
+    background-image: url(../assets/modern-architecture.png);
+}
