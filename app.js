@@ -4,6 +4,8 @@ const cityWeatherEl = document.getElementById('weather');
 const cityHousesEl = document.getElementById('houses');
 const citySloganInput = document.getElementById('slogans');
 const myButton = document.getElementById('my-button');
+const newElement = document.getElementById('slogan-output');
+
 let citySlogansArray = [];
 
 // set event listeners 
@@ -20,5 +22,15 @@ designDropdownEl.addEventListener('change', () => {
 });
 myButton.addEventListener('click', () => {
     citySlogansArray.push(citySloganInput.value);
+    displayCitySlogans();
 });
 console.log(citySlogansArray);
+
+const displayCitySlogans = () => {
+    newElement.textContent = '';
+    for (let slogansOut of citySlogansArray) {
+        const newEl = document.createElement('ul');
+        newEl.textContent = slogansOut;
+        newElement.append(newEl);
+    }  
+};
