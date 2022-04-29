@@ -11,6 +11,7 @@ const numberOfClicks = document.getElementById('number-of-drops');
 const randomChoiceEl = document.getElementById('random-choice-button');
 const cityOptionEl = document.getElementById('cities');
 const cityButtonEl = document.getElementById('city-button');
+const placeHolderEl2 = document.getElementById('placeholder-2');
 
 let bigArray = ['polar', 'tropical', 'desert', 'temperate', 'mid-century', 'gothic', 'victorian', 'modern', 'poland', 'india', 'argentina', 'uganda'];
 let citySlogansArray = [];
@@ -20,13 +21,11 @@ let randomCount = 0;
 let climateCount = 0;
 let designCount = 0;
 let flagCount = 0;
-//why is this not working?
-// let totalCount = climateCount + designCount + flagCount;
-//console.log(totalCount);
+
 randomChoiceEl.addEventListener('click', () => {
     randomButton();
 });
-
+console.log(citySlogansArray, cityNameArray);
 const randomButton = () => {
     const randomNum = Math.ceil(Math.random() * 4);
     const randomNum2 = Math.ceil(Math.random() * 4);
@@ -90,8 +89,17 @@ const randomButton = () => {
 
 cityButtonEl.addEventListener('click', () => {
     cityNameArray.push(cityOptionEl.value);
-    console.log(cityNameArray);
+    displayCityName();
 });
+
+const displayCityName = () => {
+    placeHolderEl2.textContent = '';
+    for (let namesOut of cityNameArray) {
+        const newEl2 = document.createElement('li');
+        newEl2.textContent = `${namesOut} ${citySlogansArray}`;
+        placeHolderEl2.append(newEl2);
+    }
+};
 
 climateDropdownEl.addEventListener('change', () => { 
     cityWeatherEl.style.backgroundImage = `url(../assets/${climateDropdownEl.value}-climate.png)`;
