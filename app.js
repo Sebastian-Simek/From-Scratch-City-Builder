@@ -4,15 +4,65 @@ const cityWeatherEl = document.getElementById('weather');
 const cityHousesEl = document.getElementById('houses');
 const citySloganInput = document.getElementById('slogans');
 const myButton = document.getElementById('my-button');
-const newElement = document.getElementById('slogan-output');
+const placeHolderEl = document.getElementById('slogan-output');
 const countryDropdownEl = document.getElementById('country-dropdown');
 const cityCountry = document.getElementById('countries');
 const numberOfClicks = document.getElementById('number-of-drops');
+const randomChoiceEl = document.getElementById('random-choice-button');
+
+let bigArray = ['polar', 'tropical', 'desert', 'temperate', 'mid-century', 'gothic', 'victorian', 'modern', 'poland', 'india', 'argentina', 'uganda'];
 
 let citySlogansArray = [];
 let climateCount = 0;
 let designCount = 0;
 let flagCount = 0;
+
+randomChoiceEl.addEventListener('click', () => {
+    const randomNum = Math.ceil(Math.random() * 4);
+    if (randomNum === 1) {
+        cityWeatherEl.style.backgroundImage = `url(../assets/${bigArray[0]}-climate.png)`;
+        climateCount++;
+    } else if (randomNum === 2) {
+        cityWeatherEl.style.backgroundImage = `url(../assets/${bigArray[1]}-climate.png)`;
+        climateCount++;
+    } else if (randomNum === 3) {
+        cityWeatherEl.style.backgroundImage = `url(../assets/${bigArray[2]}-climate.png)`;
+        climateCount++;
+    } else {
+        cityWeatherEl.style.backgroundImage = `url(../assets/${bigArray[3]}-climate.png)`;
+        climateCount++;
+    }
+
+    if (randomNum === 1) {
+        cityHousesEl.style.backgroundImage = `url(../assets/${bigArray[4]}-architecture.png)`;
+        designCount++;
+    } else if (randomNum === 2) {
+        cityHousesEl.style.backgroundImage = `url(../assets/${bigArray[5]}-architecture.png)`;
+        designCount++;
+    } else if (randomNum === 3) {
+        cityHousesEl.style.backgroundImage = `url(../assets/${bigArray[6]}-architecture.png)`;
+        designCount++;
+    } else {
+        cityHousesEl.style.backgroundImage = `url(../assets/${bigArray[7]}-architecture.png)`;
+        designCount++;
+    }
+
+    if (randomNum === 1) {
+        cityCountry.style.backgroundImage = `url(../assets/${bigArray[8]}-flag.png)`;
+        flagCount++;
+    } else if (randomNum === 2) {
+        cityCountry.style.backgroundImage = `url(../assets/${bigArray[9]}-flag.png)`;
+        flagCount++;
+    } else if (randomNum === 3) {
+        cityCountry.style.backgroundImage = `url(../assets/${bigArray[10]}-flag.png)`;
+        flagCount++;
+    } else {
+        cityCountry.style.backgroundImage = `url(../assets/${bigArray[11]}-flag.png)`;
+        flagCount++;
+    }
+
+    displayStats(); 
+});
 
 climateDropdownEl.addEventListener('change', () =>{ 
     cityWeatherEl.style.backgroundImage = `url(../assets/${climateDropdownEl.value}-climate.png)`;
@@ -42,10 +92,10 @@ const displayStats = () => {
 };
 
 const displayCitySlogans = () => {
-    newElement.textContent = '';
+    placeHolderEl.textContent = '';
     for (let slogansOut of citySlogansArray) {
         const newEl = document.createElement('ul');
         newEl.textContent = slogansOut;
-        newElement.append(newEl);
+        placeHolderEl.append(newEl);
     }  
 };
