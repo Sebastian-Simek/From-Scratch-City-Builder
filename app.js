@@ -4,7 +4,6 @@ const cityWeatherEl = document.getElementById('weather');
 const cityHousesEl = document.getElementById('houses');
 const citySloganInput = document.getElementById('slogans');
 const myButton = document.getElementById('my-button');
-const placeHolderEl = document.getElementById('slogan-output');
 const countryDropdownEl = document.getElementById('country-dropdown');
 const cityCountryEl = document.getElementById('countries');
 const numberOfClicks = document.getElementById('number-of-drops');
@@ -25,7 +24,7 @@ let flagCount = 0;
 randomChoiceEl.addEventListener('click', () => {
     randomButton();
 });
-console.log(citySlogansArray, cityNameArray);
+
 const randomButton = () => {
     const randomNum = Math.ceil(Math.random() * 4);
     const randomNum2 = Math.ceil(Math.random() * 4);
@@ -87,18 +86,21 @@ const randomButton = () => {
     displayStats(); 
 };
 
+
 cityButtonEl.addEventListener('click', () => {
     cityNameArray.push(cityOptionEl.value);
     displayCityName();
 });
 
+
 const displayCityName = () => {
     placeHolderEl2.textContent = '';
-    for (let namesOut of cityNameArray) {
-        const newEl2 = document.createElement('li');
-        newEl2.textContent = `${namesOut} ${citySlogansArray}`;
-        placeHolderEl2.append(newEl2);
-    }
+    for (let namesOut of cityNameArray)
+        for (let slogansOut of citySlogansArray) {
+            const newEl2 = document.createElement('li');
+            newEl2.textContent = `${namesOut}: ${slogansOut}`;
+            placeHolderEl2.append(newEl2);
+        }
 };
 
 climateDropdownEl.addEventListener('change', () => { 
@@ -121,18 +123,18 @@ countryDropdownEl.addEventListener('change', () => {
 
 myButton.addEventListener('click', () => {
     citySlogansArray.push(citySloganInput.value);
-    displayCitySlogans();
+    // displayCitySlogans();
 });
 
 const displayStats = () => {
     numberOfClicks.textContent = `You have changed the climate ${climateCount} time(s), the design ${designCount} time(s), and the country ${flagCount} time(s). You have seen a random option ${randomCount} time(s)`;  
 };
 
-const displayCitySlogans = () => {
-    placeHolderEl.textContent = '';
-    for (let slogansOut of citySlogansArray) {
-        const newEl = document.createElement('li');
-        newEl.textContent = slogansOut;
-        placeHolderEl.append(newEl);
-    }  
-};
+// const displayCitySlogans = () => {
+//     placeHolderEl.textContent = '';
+//     for 
+//         for (let namesOut of cityNameArray) {
+//             const newEl = document.createElement('li');
+//             newEl.textContent = `${slogansOut}: ${namesOut}`;
+//             placeHolderEl.append(newEl);
+//         }};
