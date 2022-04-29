@@ -6,61 +6,74 @@ const citySloganInput = document.getElementById('slogans');
 const myButton = document.getElementById('my-button');
 const placeHolderEl = document.getElementById('slogan-output');
 const countryDropdownEl = document.getElementById('country-dropdown');
-const cityCountry = document.getElementById('countries');
+const cityCountryEl = document.getElementById('countries');
 const numberOfClicks = document.getElementById('number-of-drops');
 const randomChoiceEl = document.getElementById('random-choice-button');
 
 let bigArray = ['polar', 'tropical', 'desert', 'temperate', 'mid-century', 'gothic', 'victorian', 'modern', 'poland', 'india', 'argentina', 'uganda'];
-
 let citySlogansArray = [];
+
 let climateCount = 0;
 let designCount = 0;
 let flagCount = 0;
-
+//why is this not working?
+// let totalCount = climateCount + designCount + flagCount;
+//
 randomChoiceEl.addEventListener('click', () => {
     const randomNum = Math.ceil(Math.random() * 4);
     if (randomNum === 1) {
         cityWeatherEl.style.backgroundImage = `url(../assets/${bigArray[0]}-climate.png)`;
         climateCount++;
+        climateDropdownEl.value = bigArray[0];
     } else if (randomNum === 2) {
         cityWeatherEl.style.backgroundImage = `url(../assets/${bigArray[1]}-climate.png)`;
         climateCount++;
+        climateDropdownEl.value = bigArray[1];
     } else if (randomNum === 3) {
         cityWeatherEl.style.backgroundImage = `url(../assets/${bigArray[2]}-climate.png)`;
         climateCount++;
+        climateDropdownEl.value = bigArray[2];
     } else {
         cityWeatherEl.style.backgroundImage = `url(../assets/${bigArray[3]}-climate.png)`;
         climateCount++;
+        climateDropdownEl.value = bigArray[3];
     }
 
     if (randomNum === 1) {
         cityHousesEl.style.backgroundImage = `url(../assets/${bigArray[4]}-architecture.png)`;
         designCount++;
+        designDropdownEl.value = bigArray[4];
     } else if (randomNum === 2) {
         cityHousesEl.style.backgroundImage = `url(../assets/${bigArray[5]}-architecture.png)`;
         designCount++;
+        designDropdownEl.value = bigArray[5];
     } else if (randomNum === 3) {
         cityHousesEl.style.backgroundImage = `url(../assets/${bigArray[6]}-architecture.png)`;
         designCount++;
+        designDropdownEl.value = bigArray[6];
     } else {
         cityHousesEl.style.backgroundImage = `url(../assets/${bigArray[7]}-architecture.png)`;
         designCount++;
+        designDropdownEl.value = bigArray[7];
     }
 
     if (randomNum === 1) {
-        cityCountry.style.backgroundImage = `url(../assets/${bigArray[8]}-flag.png)`;
+        cityCountryEl.style.backgroundImage = `url(../assets/${bigArray[8]}-flag.png)`;
         flagCount++;
+        countryDropdownEl.value = bigArray[8];
     } else if (randomNum === 2) {
-        cityCountry.style.backgroundImage = `url(../assets/${bigArray[9]}-flag.png)`;
+        cityCountryEl.style.backgroundImage = `url(../assets/${bigArray[9]}-flag.png)`;
         flagCount++;
+        countryDropdownEl.value = bigArray[9];
     } else if (randomNum === 3) {
-        cityCountry.style.backgroundImage = `url(../assets/${bigArray[10]}-flag.png)`;
+        cityCountryEl.style.backgroundImage = `url(../assets/${bigArray[10]}-flag.png)`;
         flagCount++;
+        countryDropdownEl.value = bigArray[10];
     } else {
-        cityCountry.style.backgroundImage = `url(../assets/${bigArray[11]}-flag.png)`;
+        cityCountryEl.style.backgroundImage = `url(../assets/${bigArray[11]}-flag.png)`;
         flagCount++;
+        countryDropdownEl.value = bigArray[11];
     }
-
     displayStats(); 
 });
 
@@ -77,7 +90,7 @@ designDropdownEl.addEventListener('change', () => {
 });
 
 countryDropdownEl.addEventListener('change', () => {
-    cityCountry.style.backgroundImage = `url(../assets/${countryDropdownEl.value}-flag.png)`;
+    cityCountryEl.style.backgroundImage = `url(../assets/${countryDropdownEl.value}-flag.png)`;
     flagCount++;
     displayStats();
 });
