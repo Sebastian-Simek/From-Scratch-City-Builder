@@ -1,1 +1,52 @@
-/* add home page styles here */
+#weather{
+    width: 400px;
+    height: 400px;
+    background-image: url(../assets/desert-climate.png);
+}
+#houses{
+    width: 400px;
+    height: 400px;
+    background-image: url(../assets/gothic-architecture.png);
+}
+#countries{
+    width: 400px;
+    height: 400px;
+    background-image: url(../assets/poland-flag.png);
+    
+}
+#slogan-output{
+    font-size: x-large;
+    font-weight: 300;
+    margin: 2em;
+}
+.bg{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid black 2px;
+    margin: 2px;
+
+}
+.top-buttons{
+    display: flex;
+    flex-direction: column;
+}
+.bottom-buttons{
+    display: flex;
+    flex-direction: column;
+}
+.my-pictures{
+    display: flex;
+}
+.drop-down-styles{
+    margin: 10px;
+}
+.drop-button{
+    padding: 10px 50px;
+    margin-left: 5em;
+    margin-right: 5em;
+}
+#placeholder-2{
+    font-size: xx-large;
+    font-style: italic;
+}
