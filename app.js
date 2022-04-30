@@ -15,6 +15,7 @@ const placeHolderEl2 = document.getElementById('placeholder-2');
 let bigArray = ['polar', 'tropical', 'desert', 'temperate', 'mid-century', 'gothic', 'victorian', 'modern', 'poland', 'india', 'argentina', 'uganda'];
 let citySlogansArray = [];
 let cityNameArray = [];
+// let climateDropdownArray = [{ display: 'polar', value: '1' }, { display: 'temperate', value: '2' }];
 
 let randomCount = 0;
 let climateCount = 0;
@@ -129,12 +130,3 @@ myButton.addEventListener('click', () => {
 const displayStats = () => {
     numberOfClicks.textContent = `You have changed the climate ${climateCount} time(s), the design ${designCount} time(s), and the country ${flagCount} time(s). You have seen a random option ${randomCount} time(s)`;  
 };
-
-// const displayCitySlogans = () => {
-//     placeHolderEl.textContent = '';
-//     for 
-//         for (let namesOut of cityNameArray) {
-//             const newEl = document.createElement('li');
-//             newEl.textContent = `${slogansOut}: ${namesOut}`;
-//             placeHolderEl.append(newEl);
-//         }};
